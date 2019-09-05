@@ -1,0 +1,6 @@
+files = commandArgs(trailingOnly=TRUE)
+stopifnot(length(files)>1)
+print(files)
+fl = lapply(files, readRDS)
+ans = do.call(rbind, fl)
+saveRDS(ans, "babe.rds")
