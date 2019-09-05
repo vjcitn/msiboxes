@@ -2,7 +2,7 @@
 
 
 workflow tumors {
-  Array[String] tumors = ["BRCA", "STAD"]
+  Array[String] tumors
   String gene
   scatter (t in tumors) {
     call onetum { input: tum1 = t, g1=gene }
