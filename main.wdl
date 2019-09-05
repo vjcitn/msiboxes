@@ -7,4 +7,7 @@ workflow genes {
     input: gene = g
     }
   }
+  output {
+   Array[Array[File]] allout = tumors.outs
+  }
 }
