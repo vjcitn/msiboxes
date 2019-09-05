@@ -10,7 +10,7 @@ import "simp4.wdl" as sub
 #  }
 #}
 
-task agg {
+task agt {
   Array[File] infiles
   File aggscr = "agglom.R"
   command {
@@ -21,11 +21,14 @@ task agg {
    }
  }
 
-task agt {
+task agg {
   Array[File] inrds
   File concscr = "conc.R"
   command {
-   Rscript ${concscr} ${sep=' ' inrds}
+   Rscript ${concscr} final.rds ${sep=' ' inrds}
+  }
+ output {
+  File concatDF = "final.rds"
   }
 }
 
@@ -38,9 +41,9 @@ workflow genes {
     }
   }
   scatter (f in tumors.outs) {
-    call agg { input: infiles = f }
+    call agt { input: infiles = f }
    }
-  call agt { input: inrds = agg.rdsbytum }
+  call agg { input: inrds = agt.rdsbytum }
   output {
    Array[Array[File]] allout = tumors.outs
   }
