@@ -16,6 +16,9 @@ task agt {
   runtime {
     continueOnReturnCode: true
     docker: "vjcitn/vjconco:v3"
+    disks: "local-disk 40 HDD"
+    bootDiskSizeGb: 50
+
     }   
  }
 
@@ -31,6 +34,8 @@ task agg {
   runtime {
     continueOnReturnCode: true
     docker: "vjcitn/vjconco:v3"
+    disks: "local-disk 40 HDD"
+    bootDiskSizeGb: 50
     }   
 }
 
