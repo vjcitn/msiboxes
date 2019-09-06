@@ -1,1 +1,4 @@
-{ }
+{ 
+"genes": ["CD8A", "PDCD1LG2"],
+"tumors": ["BRCA", "UCEC"]
+}
