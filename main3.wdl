@@ -6,7 +6,7 @@ import "https://raw.githubusercontent.com/vjcitn/msiboxes/master/simp4.wdl" as s
 
 task agt {
   Array[File] infiles
-  File aggscr = "agglom.R"
+  File aggscr = "https://raw.githubusercontent.com/vjcitn/msiboxes/master/agglom.R"
   command {
    Rscript ${aggscr} demo.rds ${sep=' ' infiles}
   }
@@ -24,7 +24,7 @@ task agt {
 
 task agg {
   Array[File] inrds
-  File concscr = "conc.R"
+  File concscr = "https://raw.githubusercontent.com/vjcitn/msiboxes/master/conc.R"
   command {
    Rscript ${concscr} final.rds ${sep=' ' inrds}
   }
