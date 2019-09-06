@@ -41,8 +41,8 @@ task agg {
 }
 
 workflow genes {
-  Array[String] genes = ["CD8A" , "PDCD1LG2"]
-  Array[String] tumors = ["BRCA", "UCEC"]
+  Array[String] genes #= ${genelist} #["CD8A" , "PDCD1LG2"]
+  Array[String] tumors #= ["BRCA", "UCEC"]
   scatter (g in genes) {
    call sub.tumors {
     input: gene = g, tumors=tumors
