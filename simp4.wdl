@@ -14,7 +14,7 @@ workflow tumors {
 task onetum {
   String tum1 
   String g1
-  File scr = "exprByMSI_csv.R"
+  File scr = "https://raw.githubusercontent.com/vjcitn/msiboxes/master/exprByMSI_csv.R"
   command {
     Rscript  ${scr}  --tumor=${tum1} --gene=${g1}
   }
