@@ -1,3 +1,4 @@
+options(warn=-1)
 args = commandArgs(trailingOnly=TRUE)
 stopifnot(length(args)>1)
 oname = args[1]

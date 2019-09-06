@@ -6,6 +6,7 @@
 
 #exprByMSI_csv = function(tumcode, genesym, alias) {
 # library(BiocGenerics)
+ options(warn=-1)
  inargs = commandArgs(trailingOnly=TRUE)
  stopifnot(length(inargs)==2)
  parms = strsplit(inargs, "=")
@@ -15,6 +16,9 @@
  names(pvals) = pnames
  tumcode = pvals["--tumor"]
  genesym = pvals["--gene"]
+ library(ExperimentHub)
+ eca = getExperimentHubOption("CACHE")
+ if (!dir.exists(eca)) try(dir.create(getExperimentHubOption("CACHE")))
  mae = curatedTCGAData::curatedTCGAData(tumcode, "RNASeq2GeneNorm", dry.run=FALSE)
  nn = names(MultiAssayExperiment::experiments(mae))
  wh = grep(tumcode, nn) 
@@ -30,6 +34,4 @@
   log2ex = log2(as.numeric(ass)+1),
   msicode = ifelse(curex[["msiTest"]] >= 4, ">=4", "<4"))
  write.csv(ans, paste0(tumcode, "_", genesym, ".csv"))
-#}
 
-#exprByMSI_csv("STAD", "PDCD1LG2", "PDCD1LG2")

@@ -1,3 +1,4 @@
+options(warn=-1)
 args = commandArgs(trailingOnly=TRUE)
 oname = args[1]
 files = args[-1]

@@ -22,5 +22,9 @@ task onetum {
   output {
     File out = "${tum1}_${g1}.csv"
   }
+  runtime {
+    continueOnReturnCode: true
+    docker: "vjcitn/vjconco:v3"
+    }   
 }
 
