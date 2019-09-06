@@ -21,11 +21,12 @@ task onetum {
   output {
     File out = "${tum1}_${g1}.csv"
   }
-#  runtime {
-#    continueOnReturnCode: true
-#    docker: "vjcitn/vjconco:v3"
-#    disks: "local-disk 40 HDD"
-#    bootDiskSizeGb: 50
-#    }   
+  runtime {
+    continueOnReturnCode: true
+    docker: "vjcitn/vjconco:v3"
+    disks: "local-disk 40 HDD"
+    bootDiskSizeGb: 50
+    memory: "24G"
+    }   
 }
 
