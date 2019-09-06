@@ -1,4 +1,2 @@
-{ 
-"genes": ["CD8A", "PDCD1LG2"],
-"tumors": ["BRCA", "UCEC"]
-}
+{"genes.genes":"${[\"CD8A\", \"PDCD1LG2\",\"ORMDL3\",\"TP53\",\"IDH1\",\"ERBB2\",\"EGFR\",\"KRAS\",\"EP300\"]}",
+ "genes.tumors":"${[\"BRCA\", \"UCEC\",\"STAD\",\"BLCA\",\"GBM\",\"LUAD\",\"COAD\"]}"}
