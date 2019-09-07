@@ -1,6 +1,14 @@
 # msiboxes
 WDL for MSIsensor stratification
 
+- Sept 7 2019
+
+Local cromwell runs will likely need more compute power than a macbook.  The code is
+primarily intended for use with dockstore.org.  Inputs must be provided; see the test.json
+for an example.  To demonstrate local execution on a laptop with reasonably endowed R/bioc
+(must have BiocOncoTK and curatedTCGAData installed), remove the runtime specs in the tasks
+in main3.wdl and simp4.wdl.  The associated [dockstore workflow](https://dockstore.org/workflows/github.com/vjcitn/msiboxes/csvgen:master?tab=info) is public and can be run in terra with a push of a button.
+
 - Sept 5 2019
 
 ```
