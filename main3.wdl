@@ -6,7 +6,7 @@ import "https://raw.githubusercontent.com/vjcitn/msiboxes/master/simp4.wdl" as s
 
 task agt {
   Array[File] infiles
-  File aggscr = "gs://fc-secure-316c235f-82e5-40fb-a576-8308a3ae10c4/agglom.R"
+  File aggscr = "gs://vjc_scripts/agglom.R"
   command {
    Rscript ${aggscr} demo.rds ${sep=' ' infiles}
   }
@@ -24,7 +24,7 @@ task agt {
 
 task agg {
   Array[File] inrds
-  File concscr = "gs://fc-secure-316c235f-82e5-40fb-a576-8308a3ae10c4/conc.R"
+  File concscr = "gs://vjc_scripts/conc.R"
   command {
    Rscript ${concscr} final.rds ${sep=' ' inrds}
   }
@@ -41,8 +41,8 @@ task agg {
 }
 
 workflow genes {
-  Array[String] genes #= ${genelist} #["CD8A" , "PDCD1LG2"]
-  Array[String] tumors #= ["BRCA", "UCEC"]
+  Array[String] genes # unbound variables will get bindings from 'inputs' json
+  Array[String] tumors 
   scatter (g in genes) {
    call sub.tumors {
     input: gene = g, tumors=tumors
